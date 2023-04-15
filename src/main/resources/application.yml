@@ -1,4 +1,6 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/todo-list
+      database: todo-list-db
+      host: todo-list-api
+      port: 27017
