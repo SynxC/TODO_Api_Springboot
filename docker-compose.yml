@@ -1,21 +1,14 @@
 services:
-  mongodb:
-    image: mongo
-    container_name: todo-list-db
-    restart: unless-stopped
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
+  todo-list-db:
+    image: mongo:latest
+    container_name: "todo-list-db"
     ports:
       - "27017:27017"
-    volumes:
-      - ./data:/data/db
-
   todo-list-api:
     build: .
-    container_name: todo-list-api
-    restart: always
+    image: todo-list-api
+    container_name: "todo-list-api"
     ports:
       - "8080:8080"
-    environment:
-      SPRING_DATA_MONGODB_URI: mongodb://root:example@todo-list-db:27017/todo-list-db
+    links:
+      - todo-list-db

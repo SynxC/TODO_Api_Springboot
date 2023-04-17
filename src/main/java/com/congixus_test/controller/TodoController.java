@@ -1,6 +1,6 @@
 package com.congixus_test.controller;
 
-import com.congixus_test.model.Todo;
+import com.congixus_test.model.TodoItem;
 import com.congixus_test.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,27 +13,27 @@ public class TodoController {
     @Autowired
     private TodoRepository todoRepository;
 
-    @PostMapping
-    public Todo addTodoItem(@RequestBody Todo todo){
-        return todoRepository.save(todo);
+    @PostMapping("/Add")
+    public TodoItem addTodoItem(@RequestBody TodoItem todoItem){
+        return todoRepository.save(todoItem);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/Delete")
     public void deleteTodoItem(@PathVariable String id){
         todoRepository.deleteById(id);
     }
 
-    @GetMapping
-    public List<Todo> getAllTodoItems(){
+    @GetMapping("/List")
+    public List<TodoItem> getAllTodoItems(){
         return todoRepository.findAll();
     }
 
-    @PutMapping("/{id}/completed")
-    public Todo markTodoItem(@PathVariable String id){
-        Todo todo = todoRepository.findById(id).orElse(null);
-        if (todo != null){
-            todo.setCompleted(true);
-            return todoRepository.save(todo);
+    @PutMapping("/Mark-complete/{id}")
+    public TodoItem markTodoItem(@PathVariable String id){
+        TodoItem todoItem = todoRepository.findById(id).orElse(null);
+        if (todoItem != null){
+            todoItem.setCompleted(true);
+            return todoRepository.save(todoItem);
         }
         return null;
     }
