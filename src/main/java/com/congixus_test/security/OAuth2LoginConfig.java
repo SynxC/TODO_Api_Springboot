@@ -9,11 +9,11 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class OAuth2LoginConfig {
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http
-                .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/").permitAll()
-                        .anyRequest().authenticated())
+                .authorizeHttpRequests((authorize) -> authorize.anyRequest().authenticated())
+                .csrf().ignoringRequestMatchers("/api/**")
+                .and()
                 .oauth2Login(Customizer.withDefaults());
         return http.build();
     }

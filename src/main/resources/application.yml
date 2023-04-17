@@ -2,13 +2,17 @@ spring:
   data:
     mongodb:
       uri: mongodb://todo-list-db:27017/todo-list
-#  security:
-#    oauth2:
-#      client:
-#        registration:
-#          google:
-#            clientId: 935346700715-bub71auqh464sbknee0qp33ukqpr0d9l.apps.googleusercontent.com
-#            clientSecret: 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
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 935346700715-bub71auqh464sbknee0qp33ukqpr0d9l.apps.googleusercontent.com
+            clientSecret: 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
+            scope: email, profile
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            authorization-grant-type: authorization_code
+            client-name: Google
 #          github:
 #            clientId: 257ba6eac319633ce216
 #            clientSecret: 309bf8f3116c287a78c4c4db43d026a38cf6cfc8
