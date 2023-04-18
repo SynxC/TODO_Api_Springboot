@@ -11,10 +11,13 @@ public class OAuth2LoginConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http
-                .authorizeHttpRequests((authorize) -> authorize.anyRequest().authenticated())
-                .csrf().ignoringRequestMatchers("/api/**")
+                .authorizeHttpRequests((authorize) -> authorize.requestMatchers("/api/v1/todo/**").permitAll().anyRequest().authenticated())
+                .cors()
                 .and()
+                .csrf().disable()
                 .oauth2Login(Customizer.withDefaults());
         return http.build();
     }
+
+    
 }
