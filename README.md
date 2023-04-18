@@ -20,7 +20,7 @@
     - Execute the command -> `docker compose up`
 
 # POST Requests Commands:
-`GET` 	-> http://localhost:8080/api/v1/todo/List
-`POST`	-> http://localhost:8080/api/v1/todo/Add
-`PUT`	-> http://localhost:8080/api/v1/todo/Mark-complete/{id}
-`DELETE`-> http://localhost:8080/api/v1/todo/Delete/{id}
+* `GET` 	-> http://localhost:8080/api/v1/todo/List
+* `POST`	-> http://localhost:8080/api/v1/todo/Add
+* `PUT`	-> http://localhost:8080/api/v1/todo/Mark-complete/{id}
+* `DELETE`-> http://localhost:8080/api/v1/todo/Delete/{id}
