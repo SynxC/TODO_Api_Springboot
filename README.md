@@ -7,7 +7,7 @@
 
 # Instructions for testing the app
 1. Ensure the application is running
-2. Navigate to `http://localhost:8080/swagger-ui/index.html`
+2. Navigate to [`http://localhost:8080/swagger-ui/index.html`](http://localhost:8080/swagger-ui/index.html)
 3. Perform the tests for `GET`, `POST`, `DELETE`, `PUT` within the tabs.
 
 # Instructions for building the app
