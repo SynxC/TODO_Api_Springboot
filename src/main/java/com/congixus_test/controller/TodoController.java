@@ -2,8 +2,12 @@ package com.congixus_test.controller;
 
 import com.congixus_test.model.TodoItem;
 import com.congixus_test.repository.TodoRepository;
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.mapping.Unwrapped;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -15,7 +19,18 @@ public class TodoController {
 
     @PostMapping("/Add")
     public TodoItem addTodoItem(@RequestBody TodoItem todoItem){
-        return todoRepository.save(todoItem);
+        try {
+            if (todoItem.getId() == null) {
+                return todoRepository.save(todoItem);
+            }
+            throw new IllegalArgumentException("ID provided error");
+        }
+        catch(IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Illegal Argument", e);
+        }
+        catch(Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Unknown Error, please try again later", e);
+        }
     }
 
     @DeleteMapping("/Delete/{id}")

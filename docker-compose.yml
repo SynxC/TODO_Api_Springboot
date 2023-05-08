@@ -5,6 +5,7 @@ services:
     ports:
       - "27017:27017"
   todo-list-api:
+    platform: linux/amd64
     build: .
     image: todo-list-api
     container_name: "todo-list-api"
