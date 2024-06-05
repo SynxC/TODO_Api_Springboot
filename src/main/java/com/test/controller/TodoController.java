@@ -1,10 +1,8 @@
-package com.congixus_test.controller;
+package com.test.controller;
 
-import com.congixus_test.model.TodoItem;
-import com.congixus_test.repository.TodoRepository;
-import org.springframework.beans.TypeMismatchException;
+import com.test.model.TodoItem;
+import com.test.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.mapping.Unwrapped;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;

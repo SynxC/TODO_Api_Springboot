@@ -1,4 +1,4 @@
-package com.congixus_test.security;
+package com.test.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -6,9 +6,9 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.0.5</version>
-		<relativePath/> <!-- lookup parent from com.congixus_test.repository -->
+		<relativePath/> <!-- lookup parent from com.test.repository -->
 	</parent>
-	<groupId>com.congixus_test</groupId>
+	<groupId>com.test</groupId>
 	<artifactId>todo_api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>todo_api</name>

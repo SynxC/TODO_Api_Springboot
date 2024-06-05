@@ -1,4 +1,4 @@
-package com.congixus_test.model;
+package com.test.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
